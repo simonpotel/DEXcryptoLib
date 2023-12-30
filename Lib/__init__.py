@@ -23,6 +23,10 @@ from .Web3.network import *  # Importing functionality related to networks in We
 
 # Networks/
 # |-- constants.py
+# |-- Bitcoin/
+# |   |-- .py
+# |-- Ethereum/
+# |   |-- .py
 # |-- Polygon/
 # |   |-- constants.py
 # |   |-- matic.py

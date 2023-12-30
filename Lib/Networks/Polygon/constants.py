@@ -1,4 +1,4 @@
-#Cconstants of some tokens on Polygon Network.
+#All constants of tokens on Polygon Network.
 
 pol_aTNDR = "0x29E3E6AD4EEAdF767919099Ee23c907946435a70"
 pol_aMATIC = "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"

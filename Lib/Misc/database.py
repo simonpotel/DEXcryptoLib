@@ -93,7 +93,7 @@ def init_database(db_name, db_config_file):
     config = get_json_content(db_config_file)
     if config == -1: 
         write_json(db_config_file, {'host': 'localhost', 'user': 'smartswap', 'pass': 'null'})
-        print(f"{'db.json'} has been created.")
+        print(f"{db_config_file} has been created.")
         exit()
     return DatabaseSQL(
         config["host"],

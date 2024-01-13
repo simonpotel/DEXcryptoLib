@@ -2,7 +2,7 @@
 
 #
 from .Misc.logs import *  # Importing the file that manages logs (debug/chain)
-from .Misc.jsonconfig import *  # Importing functionality to retrieve JSON configurations (logs/wallets)
+from .Misc.json import *  # Importing functionality to retrieve JSON configurations (logs/wallets)
 from .Misc.wallet import *  # Importing the class for creating wallet objects and facilitating multi-wallet management
 #
 from .Networks.constants import *  # Importing all Constants related to Networks

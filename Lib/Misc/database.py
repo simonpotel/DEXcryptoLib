@@ -82,12 +82,56 @@ class DatabaseSQL(object):
         try:
             cursor.execute(query, tuple(values.values()))
             self.connection.commit()
-            log("db", "Insertion successful. (table: " + table_name + ") values: " + str(values))
+            log("db", f"Insertion successful. (table: {table_name}) values: {values}")
         except Exception as e:
             log("db", f"Error during insertion: {e}")
             self.connection.rollback()
         finally:
             cursor.close()
+
+    def delete_row_by_column_value(self, table_name, column, value):
+        """
+        Deletes a row from the specified table where a specific column equals a given value.
+
+        Parameters:
+        - table_name: The name of the table to delete from.
+        - column: The column to check for the specified value.
+        - value: The value to match for deletion.
+        """
+        query = f"DELETE FROM {table_name} WHERE {column} = %s;"
+
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query, (value,))
+            self.connection.commit()
+            log("db", f"Deletion successful. (table: {table_name}, column: {column}, value: {value})")
+        except Exception as e:
+            log("db", f"Error during deletion: {e}")
+            self.connection.rollback()
+        finally:
+            cursor.close()
+    def delete_row_by_column_values(self, table_name, column_values):
+        """
+        Deletes a row from the specified table where specific columns equal given values.
+
+        Parameters:
+        - table_name: The name of the table to delete from.
+        - column_values: A dictionary of column-value pairs for deletion.
+        """
+        conditions = " AND ".join([f"{key} = %s" for key in column_values.keys()])
+        query = f"DELETE FROM {table_name} WHERE {conditions};"
+
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query, tuple(column_values.values()))
+            self.connection.commit()
+            log("db", f"Deletion successful. (table: {table_name}, columns: {column_values})")
+        except Exception as e:
+            log("db", f"Error during deletion: {e}")
+            self.connection.rollback()
+        finally:
+            cursor.close()
+
     
 def init_database(db_name, db_config_file):
     config = get_json_content(db_config_file)

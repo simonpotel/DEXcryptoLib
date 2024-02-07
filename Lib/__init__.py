@@ -16,7 +16,7 @@ from .Routers.constants import *  # Importing addresses and ABIs of all configur
 from .Routers.quickswap import *  # Importing the class for interacting with the Quickswap router 
 from .Routers.uniswap import *  # Importing the class for interacting with the Uniswap router 
 #
-from .Web3.contract import *  # Importing functionality related to contracts in Web3
+from .Web3.ierc20 import *  # Importing functionality related to contracts in Web3
 from .Web3.network import *  # Importing functionality related to networks in Web3
 
 #**********DIRECTORY TREE

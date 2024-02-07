@@ -37,13 +37,14 @@ class Contract(object):
         )
     def getAllowance(self, owner, spender):
         """
-        Function to get the balance of the given address from the contract.
+        Function to get the amount allowed to to be use on owner balance by a address (spender)
 
         Parameters:
-        - address (str): The address to get the balance for.
+        - owner (str): The address of the the balance owner
+        - spender (str): The address of the spender (most of the time a Smart Contract)
 
         Returns:
-        - The balance of the given address from the contract.
+        - The amount allowed to to be use on owner balance by a address (spender) 
         """
         return self.contract.functions.allowance(owner, spender).call()
     def getBalance(self, address):

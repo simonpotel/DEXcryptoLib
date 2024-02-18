@@ -1,6 +1,7 @@
+import mysql.connector
 from .json import *
 from .logs import *
-import mysql.connector
+from datetime import datetime
 
 class DatabaseSQL(object):
     def __init__(self, host, user, password, database):
@@ -88,6 +89,63 @@ class DatabaseSQL(object):
             self.connection.rollback()
         finally:
             cursor.close()
+
+    def get_prices_for_day(self, table_name, date):
+        """
+        Retrieves prices for a specific day.
+
+        Parameters:
+        - table_name: The name of the table.
+        - date: A list containing [year, month, day].
+
+        Returns:
+        - A list of tuples, each containing (datetime, price) for the specified day.
+        """
+        year, month, day = date
+        query = f"SELECT date, price FROM {table_name} WHERE DATE(date) = '{year}-{month}-{day}';"
+        results = self.execute_query(query)
+        return [(result[0], result[1]) for result in results]
+
+    def get_prices_per_hour_for_day(self, table_name, date):
+        """
+        Retrieves prices for each hour of a specific day.
+
+        Parameters:
+        - table_name: The name of the table.
+        - date: A list containing [year, month, day].
+
+        Returns:
+        - A list of tuples, each containing (datetime, price) for each hour of the day.
+        """
+        year, month, day = date
+        prices_per_hour = []
+
+        # Construct query to fetch prices for each hour
+        for hour in range(24):
+            hour_start = f"{year}-{month}-{day} {hour:02d}:00:00"
+            hour_end = f"{year}-{month}-{day} {hour:02d}:59:59"
+            query = f"SELECT date, AVG(price) FROM {table_name} WHERE date BETWEEN '{hour_start}' AND '{hour_end}';"
+
+            # Execute query and fetch result
+            result = self.execute_query(query)
+            if result[0][0] is not None:
+                prices_per_hour.append((result[0][0], result[0][1]))
+
+        return prices_per_hour
+    def get_average_prices_per_day(self, table_name):
+        """
+        Retrieves the average prices for each day.
+
+        Parameters:
+        - table_name: The name of the table.
+
+        Returns:
+        - A list of tuples, each containing (date, average_price) for each day.
+        """
+        query = f"SELECT DATE(date) AS date, AVG(price) AS average_price FROM {table_name} GROUP BY DATE(date);"
+        results = self.execute_query(query)
+        return results
+
     
 def init_database(db_name, db_config_file):
     config = get_json_content(db_config_file)

@@ -53,6 +53,11 @@ class Uniswap(object):
         receipt_approve = self.web3.eth.wait_for_transaction_receipt(tx_approve_transaction)  # Function to wait until nonce gets +1
         log("routers", "Uniswap transactionHash: " + receipt_approve["transactionHash"].hex() + " receipt_approve : " + str(receipt_approve))
         return tx_approve_transaction, receipt_approve["status"]  # Return (hash, status) of the transaction
+    def getAmountsOut(self, amountIn, path):
+        result = self.contract.functions.getEstimatedTokensOut((
+                amountIn, 
+                path))
+        return result
     def exactInputSingle(self, amount, tokenIn, tokenOut, receiver_address, amountOutMin):
         """
         Function to swap a specific amount of tokens for another using Uniswap.

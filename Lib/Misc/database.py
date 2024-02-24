@@ -146,6 +146,16 @@ class DatabaseSQL(object):
         results = self.execute_query(query)
         return results
 
+    def get_all_tables(self):
+        """
+        Retrieves the names of all tables in the database.
+
+        Returns:
+        - A list of table names.
+        """
+        query = "SHOW TABLES;"
+        results = self.execute_query(query)
+        return [row[0] for row in results]
     
 def init_database(db_name, db_config_file):
     config = get_json_content(db_config_file)

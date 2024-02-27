@@ -2,8 +2,15 @@
 
 <img src="https://github.com/simonpotel/DEXcryptoLib/blob/a753d48f7edb8da48bb372cd4daeba60291e2754/logo.jpeg" width="300" height="300">
 
-A Python library for simpler interaction with the blockchain. This library uses Python's native Web3 api, which can be installed via the deployment section.
-Functions for interacting with contracts and different network tokens in the blockchain.
+A Python library for simpler interaction with the blockchain. 
+The main purpose of this project is to recreate the functions of smart contracts, notably those of decentralized exchanges like Uniswap or Quickswap, to enable direct interactions with the smart contracts using your code.
+
+Exemple for the ERC 20 Tokens functions: https://vscode.blockscan.com/polygon/0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32
+in Lib/Web3/ier20.py
+
+This library uses Python's native Web3 api, which can be installed via the deployment section.
+
+You can calculate the fees you will incur during approval or swapping. You can perform swaps using QuickSwap or Uniswap routers on the Polygon network.
 
 ## Deployment
 - To install requires:

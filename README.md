@@ -1,45 +1,47 @@
 # DEXcryptoLib
 
-<img src="https://github.com/simonpotel/DEXcryptoLib/blob/a753d48f7edb8da48bb372cd4daeba60291e2754/logo.jpeg" width="300" height="300">
+![Logo](https://github.com/simonpotel/DEXcryptoLib/blob/a753d48f7edb8da48bb372cd4daeba60291e2754/logo.jpeg)
 
-A Python library for simpler interaction with the blockchain. 
-The main purpose of this project is to recreate the functions of smart contracts, notably those of decentralized exchanges like Uniswap or Quickswap, to enable direct interactions with the smart contracts using your code.
+DEXcryptoLib is a Python library designed to streamline interactions with the blockchain. The primary objective of this project is to replicate the functionalities of smart contracts, particularly those found in decentralized exchanges like Uniswap or Quickswap, facilitating direct interaction with smart contracts using your code.
 
-Exemple for the ERC 20 Tokens functions: https://vscode.blockscan.com/polygon/0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32
-in Lib/Web3/ier20.py
+For example, for ERC 20 Tokens functions, refer to: [ier20.py](https://vscode.blockscan.com/polygon/0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32) in Lib/Web3/ier20.py.
 
-This library uses Python's native Web3 api, which can be installed via the deployment section.
+This library leverages Python's native Web3 API, which can be installed using the following command:
 
-You can calculate the fees you will incur during approval or swapping. You can perform swaps using QuickSwap or Uniswap routers on the Polygon network.
-
-## Deployment
-- To install requires:
-```python
+```bash
 pip install web3
 ```
 
-- To include the project as submodule of your project
-```
+## Deployment
+
+### Installation
+To include the project as a submodule of your project, run:
+
+```bash
 git submodule add https://github.com/simonpotel/DEXcryptoLib
 ```
 
-- To get latest version of the lib 
-```
-git submodule update --remote 
+To get the latest version of the library:
+
+```bash
+git submodule update --remote
 ```
 
-- Includes in your code:
+### Usage
+Include the library in your code as follows:
+
 ```python
-    from DEXcryptoLib.Lib import *
+from DEXcryptoLib.Lib import *
 ```
 
-## Importants Advices
-> [!NOTE]
-> The project is based on the structure I have of web3, so it's possible to have frequent reworkings of the main structure of the project if my perception of how a smart contract or networks works.
+## Important Considerations
 
-> [!CAUTION]
-> It's a library, so it doesn't control all transaction security. So if a problem is encountered during your transaction, it may be caused by a number of factors that are not necessarily related to the library and the way the code works.
+> **Note:** 
+> The project structure is based on my understanding of web3, hence expect periodic updates to the main structure of the project to align with changes in smart contracts or networks.
 
-## Example of usage (snippets)
-Watch DEXcryptoLib\snippets\* 
-to get examples of usages. 
+> **Caution:** 
+> This is a library, and it does not govern all transaction security. If you encounter any issues during your transactions, they may be caused by factors unrelated to the library or its code.
+
+## Usage Examples (Snippets)
+
+For usage examples, refer to the snippets provided in DEXcryptoLib\snippets\*.

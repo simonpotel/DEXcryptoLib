@@ -1,6 +1,6 @@
 # DEXcryptoLib
 
-![Logo](https://github.com/simonpotel/DEXcryptoLib/blob/a753d48f7edb8da48bb372cd4daeba60291e2754/logo.jpeg)
+<img src="https://github.com/simonpotel/DEXcryptoLib/blob/a753d48f7edb8da48bb372cd4daeba60291e2754/logo.jpeg" width="300" height="300">
 
 DEXcryptoLib is a Python library designed to streamline interactions with the blockchain. The primary objective of this project is to replicate the functionalities of smart contracts, particularly those found in decentralized exchanges like Uniswap or Quickswap, facilitating direct interaction with smart contracts using your code.
 

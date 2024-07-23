@@ -6,6 +6,12 @@ DEXcryptoLib is a Python library designed to streamline interactions with the bl
 
 For example, for ERC 20 Tokens functions, refer to: [ier20.py](https://vscode.blockscan.com/polygon/0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32) in Lib/Web3/ier20.py.
 
+> [!IMPORTANT]  
+> The project structure is based on my understanding of web3, hence expect periodic updates to the main structure of the project to align with changes in smart contracts or networks.
+
+> [!CAUTION]  
+> This is a library, and it does not govern all transaction security. If you encounter any issues during your transactions, they may be caused by factors unrelated to the library or its code.
+
 This library leverages Python's native Web3 API, which can be installed using the following command:
 
 ```bash
@@ -33,14 +39,6 @@ Include the library in your code as follows:
 ```python
 from DEXcryptoLib.Lib import *
 ```
-
-## Important Considerations
-
-> **Note:** 
-> The project structure is based on my understanding of web3, hence expect periodic updates to the main structure of the project to align with changes in smart contracts or networks.
-
-> **Caution:** 
-> This is a library, and it does not govern all transaction security. If you encounter any issues during your transactions, they may be caused by factors unrelated to the library or its code.
 
 ## Usage Examples (Snippets)
 
